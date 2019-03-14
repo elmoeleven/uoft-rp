@@ -5,10 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { GameBoardComponent } from './game-board/game-board.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent,
+    GameBoardComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -16,6 +22,8 @@ import { reducers, metaReducers } from './reducers';
     StoreModule.forRoot(reducers, { metaReducers })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [PageNotFoundComponent, GameBoardComponent, WelcomeComponent],
+  entryComponents: [PageNotFoundComponent, GameBoardComponent, WelcomeComponent]
 })
 export class AppModule { }
