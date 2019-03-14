@@ -78,14 +78,16 @@ const DEFAULT_STATE: IGameBoardState = {
   score: 0,
   level: 0,
   hintCount: 5,
+  gameOver: false,
   addTimeCount: 3,
-  timeRemaining: 3600,
+  allottedTime: 60,
   selectedCoords: []
 };
 
 const gameBoardMap = new Map<GameBoardActions, (state: IGameBoardState, action: GameBoardAction) => IGameBoardState>([
   [GameBoardActions.Initialize, _initialize],
-  [GameBoardActions.SelectBlock, _selectBlock]
+  [GameBoardActions.SelectBlock, _selectBlock],
+  [GameBoardActions.EndGame, _endGame]
 ]);
 
 export function gameBoardReducer(state: IGameBoardState = DEFAULT_STATE, action: GameBoardAction): IGameBoardState {
@@ -188,5 +190,12 @@ function _selectBlock(state: IGameBoardState, { coord }: GameBoardSelectBlockAct
     ...state,
     grid,
     selectedCoords
+  };
+}
+
+function _endGame(state: IGameBoardState, action: GameBoardInitializeAction): IGameBoardState {
+  return {
+    ...state,
+    gameOver: true
   };
 }

@@ -9,6 +9,9 @@ export enum GameBoardActions {
 
   AddTime = '[GAMEBOARD] Add Time',
   ShowHint = '[GAMEBOARD] Show Hint',
+
+  EndGame = '[GAMEBOARD] End Game',
+
   Quit = '[GAMEBOARD] Quit'
 }
 
@@ -34,9 +37,14 @@ export class GameBoardSelectBlockAction implements Action {
   constructor(readonly coord: string) {}
 }
 
+export class GameBoardEndGameAction implements Action {
+  readonly type: typeof GameBoardActions.EndGame = GameBoardActions.EndGame;
+}
+
 export type GameBoardAction =
   | GameBoardInitializeAction
   | GameBoardAddTimeAction
   | GameBoardShowHintAction
   | GameBoardQuitAction
-  | GameBoardSelectBlockAction;
+  | GameBoardSelectBlockAction
+  | GameBoardEndGameAction;

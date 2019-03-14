@@ -6,7 +6,8 @@ export interface IGameBoardState {
   score: number;
   hintCount: number;
   addTimeCount: number;
-  timeRemaining: number;
+  allottedTime: number;
+  gameOver: boolean;
   level: number;
   grid?: WeightedGrid;
   selectedCoords?: string[];
