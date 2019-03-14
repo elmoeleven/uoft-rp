@@ -1,0 +1,17 @@
+.nzGameBoard-board {
+  display: flex;
+  flex-direction: column;
+}
+
+.nzGameBoard-boardRow {
+  display: flex;
+}
+
+.nzGameBoard-block {
+  height: 4rem;
+  width: 4rem;
+
+  &.isSelected {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}

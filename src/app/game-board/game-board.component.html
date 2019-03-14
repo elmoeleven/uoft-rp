@@ -1,5 +1,34 @@
-<p>
-  game works!
-</p>
-
-<a routerLink="/" routerLinkActive="active">quit</a>
+<header class="nzGameBoard-header">
+  <div class="nzGameBoard-timerContainer">
+    {{ timeRemaining$ | async }}
+  </div>
+  <div class="nzGameBoard-scoreContainer">
+    {{ score$ | async }}
+  </div>
+</header>
+<section class="nzGameBoard-board" *ngIf="(grid$ | async); let grid">
+  <div class="nzGameBoard-boardRow" *ngFor="let row of grid.blocks">
+    <div class="nzGameBoard-boardColumn" *ngFor="let block of row">
+      <button
+        type="button"
+        class="nzGameBoard-block"
+        (click)="selectBlock(block)"
+        [class.isEmpty]="block.isEmpty"
+        [class.isSelected]="block.isSelected"
+      >
+        {{ block.content }}
+      </button>
+    </div>
+  </div>
+</section>
+<section class="nzGameBoard-ctaList">
+  <button type="button" class="nzGameBoard-addTimeBtn" (click)="addTime()">
+    add time
+  </button>
+  <button type="button" class="nzGameBoard-hintBtn" (click)="hint()">
+    hint
+  </button>
+  <button type="button" class="nzGameBoard-quit" (click)="quit()">
+    quit
+  </button>
+</section>
