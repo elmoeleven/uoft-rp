@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SquareGrid } from './utils/square-grid';
+
 @Component({
   selector: 'nz-root',
   templateUrl: './app.component.html',
