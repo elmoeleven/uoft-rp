@@ -1,0 +1,44 @@
+{
+	"folders":
+	[
+		{
+			"file_include_patterns":
+			[
+				"*.ts",
+				"*.js",
+				"*.sh",
+				"*.scss",
+				"*.yml",
+				"*.html",
+				"*.xlf",
+				"*.json",
+				"*.sublime-project",
+				".gitignore",
+				".prettierrc"
+			],
+			"folder_exclude_patterns":
+			[
+				"node_modules"
+			],
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"LSP":
+		{
+			"javascript-typescript-langserver":
+			{
+				"enabled": true
+			},
+			"lsp-tsserver":
+			{
+				"enabled": true
+			},
+			"typescript-language-server":
+			{
+				"enabled": true
+			}
+		}
+	}
+}
